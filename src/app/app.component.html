@@ -1,3 +1,8 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ng-container *ngIf="userConnected(); else registerNow">
+    <ion-router-outlet></ion-router-outlet>
+  </ng-container>
+  <ng-template #registerNow>
+    <app-register></app-register>
+  </ng-template>
 </ion-app>

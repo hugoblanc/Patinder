@@ -1,0 +1,18 @@
+<ion-content fullscreen>
+  <div class="wrapper-input">
+    <ion-card>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="stacked">
+            Nom d'utilisateur<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required type="text" autofocus="true" [(ngModel)]="username"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div class="ion-padding">
+        <ion-button expand="block" class="ion-no-margin" (click)="postUser()" [disabled]="username.length < 2">S'inscrire</ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
