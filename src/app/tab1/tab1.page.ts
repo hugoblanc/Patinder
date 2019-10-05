@@ -20,7 +20,7 @@ export class Tab1Page implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.init();
-    }, 1000);
+    }, 300);
   }
 
 
