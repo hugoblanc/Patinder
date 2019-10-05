@@ -1110,7 +1110,12 @@ export class PatService {
 
 
   savePatrimoine(patrimoine: Patrimoine) {
-    return this.http.post('https://patrimoine.harari.io/web/api/donation', { recordid: 'ZERTYUJJRE', user_id: 'YUI', amout: 10 });
+    return this.http.post('https://patrimoine.harari.io/web/api/donation',
+      {
+        recordid: patrimoine.recordid,
+        user_id: 'YUI',
+        amout: 10
+      });
   }
 
 }
