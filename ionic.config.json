@@ -1,5 +1,7 @@
 {
   "name": "Patinder",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
