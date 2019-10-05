@@ -12,12 +12,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   postUser() {
     if (this.username.length) {
       this.userService.saveUser(this.username).subscribe((res) => {
-        console.log('res', res);
+        this.userService.storeUser(Number(res));
       });
     }
   }
