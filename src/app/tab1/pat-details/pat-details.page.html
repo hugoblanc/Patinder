@@ -1,0 +1,20 @@
+<ion-content>
+
+  <img [src]="patrimoine.fields.image" alt="image">
+
+
+  <ion-card-header>
+    Description
+  </ion-card-header>
+  <ion-card-content>
+    {{patrimoine.fields.description_du_lieu_fr}}
+  </ion-card-content>
+
+
+
+  <app-map-iframe [lat]="patrimoine.fields.longitude" [lon]="patrimoine.fields.latitude" ></app-map-iframe>
+
+
+
+
+</ion-content>

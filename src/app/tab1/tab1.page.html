@@ -2,12 +2,12 @@
 <ion-content padding>
   <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
     <div class="stackedcards-container">
-      <div (click)="showDetails(val)" class="card-item" *ngFor="let val of value" [ngStyle]="{'background-image': 'url(' + val.fields.image + ')'}" >
+      <div (click)="showDetails()" class="card-item" *ngFor="let pat of patrimoines" [ngStyle]="{'background-image': 'url(' + pat.fields.image + ')'}" >
       </div>
     </div>
-    <div class="stackedcards--animatable stackedcards-overlay top">TOP</div>
-    <div class="stackedcards--animatable stackedcards-overlay right">RIGHT</div>
-    <div class="stackedcards--animatable stackedcards-overlay left">LEFT</div>
+    <div (click)="showDetails()" class="stackedcards--animatable stackedcards-overlay top">TOP</div>
+    <div (click)="showDetails()" class="stackedcards--animatable stackedcards-overlay right">RIGHT</div>
+    <div (click)="showDetails()" class="stackedcards--animatable stackedcards-overlay left">LEFT</div>
   </div>
   <div class="global-actions">
     <div class="left-action">Left</div>
