@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -60,53 +61,6 @@ export class PatService {
       coordinates: [
         1.964648,
         48.677396
-      ]
-    },
-    record_timestamp: '2019-09-13T11:32:22.384+02:00'
-  },
-  {
-    datasetid: 'jep_spi_2019',
-    recordid: '914a5e50ea4676d7cc21475f07338d46a15fe8c0',
-    fields: {
-      departement: 'Yvelines',
-      description_longue_fr: 'Un guide-conf\u00e9rencier vous fait d\u00e9couvrir l\u2019architecture du p\u00f4le de spectacles con\u00e7u par le cabinet Studio Milou, ainsi que la biblioth\u00e8que de Jean-Paul Porchon r\u00e9nov\u00e9e par l\u2019agence Lambert-L\u00e9nack.',
-      conditions_de_participation: 'Gratuit',
-      categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
-      identifiant_du_lieu: '41604771',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/le-pole-culturel-la-lanterne',
-      derniere_ouverture: '15:30',
-      titre_fr: 'Visite guid\u00e9e du p\u00f4le culturel La Lanterne',
-      premiere_fermeture: '15:15',
-      longitude: '1.822923',
-      resume_horaires_fr: 'Samedi 21 septembre, 14h30, 15h30',
-      description_fr: 'Un guide-conf\u00e9rencier vous fait d\u00e9couvrir l\u2019architecture du p\u00f4le de spectacles con\u00e7u par le cabinet Studio Milou, ainsi que la biblioth\u00e8que de Jean-Paul Porchon r\u00e9nov\u00e9e par l\u2019agence Lambert-L\u00e9nack.',
-      creation_de_la_fiche: '2019-07-12T10:11:04.000Z',
-      horaires_iso: '2019-09-21T14:30:00+02:00-2019-09-21T15:15:00+02:00\n2019-09-21T15:30:00+02:00-2019-09-21T16:15:00+02:00',
-      types_d_evenement: 'Visite comment\u00e9e / Conf\u00e9rence',
-      derniere_mise_a_jour: '2019-07-28T08:22:09.000Z',
-      latitude: '48.646248',
-      wgs84: [
-        48.646248,
-        1.822923
-      ],
-      horaires_detailles_fr: 'samedi 21 septembre - 14h30 \u00e0 15h15\nsamedi 21 septembre - 15h30 \u00e0 16h15',
-      derniere_fermeture: '16:15',
-      adresse: 'Place Th\u00f4me-Paten\u00f4tre 78120 Rambouillet',
-      premiere_date: '2019-09-21',
-      code_postal: '78120',
-      derniere_date: '2019-09-21',
-      nom_du_lieu: 'P\u00f4le culturel-m\u00e9diath\u00e8que La Lanterne',
-      ville: 'Rambouillet',
-      region: '\u00cele-de-France',
-      detail_des_conditions_fr: 'Entr\u00e9e libre',
-      tags_du_lieu: 'Lieu de spectacles, sports et loisirs',
-      premiere_ouverture: '14:30'
-    },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        1.822923,
-        48.646248
       ]
     },
     record_timestamp: '2019-09-13T11:32:22.384+02:00'
@@ -1139,10 +1093,10 @@ export class PatService {
 
   private _patrimoine: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
-  getPatrimoine(): any[]{
+  getPatrimoine(): any[] {
     return this.values;
   }
 
@@ -1150,8 +1104,13 @@ export class PatService {
     this._patrimoine = patrimoine;
   }
 
-  getCurrentPatrimoine(){
+  getCurrentPatrimoine() {
     return this._patrimoine;
+  }
+
+
+  savePatrimoine(patrimoine: Patrimoine) {
+    return this.http.post('https://patrimoine.harari.io/web/api/donation', { recordid: 'ZERTYUJJRE', user_id: 'YUI', amout: 10 });
   }
 
 }

@@ -32,6 +32,14 @@ export class Tab1Page implements OnInit {
     this.router.navigateByUrl('pat-details');
   }
 
+  savePatrimoine() {
+    this.patService.savePatrimoine(this.patrimoines[this.count])
+      .subscribe((result) => {
+        console.log(result);
+      });
+
+  }
+
 
 
   init() {
@@ -73,6 +81,39 @@ export class Tab1Page implements OnInit {
         currentElementObj = listElNodesObj[currentPosition];
         this.count++;
       };
+
+      // Swipe active card to right.
+      const onSwipeRight = () => {
+        removeNoTransition();
+        transformUi(1000, 0, 0, currentElementObj);
+        if (useOverlays) {
+          transformUi(1000, 0, 0, rightObj); // Move rightOverlay
+          transformUi(1000, 0, 0, topObj); // Move topOverlay
+          resetOverlayRight();
+        }
+
+        currentPosition = currentPosition + 1;
+        updateUi();
+        currentElement();
+        setActiveHidden();
+      };
+      // Functions to swipe right elements on logic external action.
+      const onActionRight = () => {
+        if (!(currentPosition >= maxElements)) {
+          if (useOverlays) {
+            rightObj.classList.remove('no-transition');
+            topObj.classList.remove('no-transition');
+            rightObj.style.zIndex = '8';
+            transformUi(0, 0, 1, rightObj);
+          }
+
+          setTimeout(() => {
+            onSwipeRight();
+            resetOverlayRight();
+          }, 300);
+        }
+      };
+
 
       countElements();
       currentElement();
@@ -200,22 +241,7 @@ export class Tab1Page implements OnInit {
         }
       }
 
-      // Functions to swipe right elements on logic external action.
-      function onActionRight() {
-        if (!(currentPosition >= maxElements)) {
-          if (useOverlays) {
-            rightObj.classList.remove('no-transition');
-            topObj.classList.remove('no-transition');
-            rightObj.style.zIndex = '8';
-            transformUi(0, 0, 1, rightObj);
-          }
 
-          setTimeout(() => {
-            onSwipeRight();
-            resetOverlayRight();
-          }, 300);
-        }
-      }
 
       // Functions to swipe top elements on logic external action.
       function onActionTop() {
@@ -250,21 +276,6 @@ export class Tab1Page implements OnInit {
         setActiveHidden();
       }
 
-      // Swipe active card to right.
-      function onSwipeRight() {
-        removeNoTransition();
-        transformUi(1000, 0, 0, currentElementObj);
-        if (useOverlays) {
-          transformUi(1000, 0, 0, rightObj); // Move rightOverlay
-          transformUi(1000, 0, 0, topObj); // Move topOverlay
-          resetOverlayRight();
-        }
-
-        currentPosition = currentPosition + 1;
-        updateUi();
-        currentElement();
-        setActiveHidden();
-      }
 
       // Swipe active card to top.
       function onSwipeTop() {
