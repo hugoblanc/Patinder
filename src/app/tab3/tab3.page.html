@@ -11,23 +11,23 @@
     </ion-text>
   </div>
 
-  <ion-item-divider>
-    Entreprise
-  </ion-item-divider>
-  <ion-item>
-    <ion-avatar slot="start">
-      <img src="assets/wild.jpg">
-    </ion-avatar>
-    <ion-text>
-      Salarié à la Wild Code School
-    </ion-text>
-  </ion-item>
 
 
-  <ion-item-divider>
-    Mes info
-  </ion-item-divider>
-  
+  <ion-list>
+
+    <ion-item-divider>
+      Mes info
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/me.jpg">
+      </ion-avatar>
+      <ion-label>Hugo Blanc</ion-label>
+      <p>Code: {{user?.code}}</p>
+      <p>Username: {{user?.username}}</p>
+    </ion-item>
+  </ion-list>
 
 
 </ion-content>

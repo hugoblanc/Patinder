@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class UserService {
   private storageKey = 'user';
   public userId: number;
+  public user: any;
   constructor(private http: HttpClient) { }
 
   saveUser(firstname: string): Observable<any> {
@@ -18,6 +19,11 @@ export class UserService {
 
   storeUser(userId: number): void {
     localStorage.setItem(this.storageKey, userId.toString());
+    this.userId = userId;
+  }
+
+  storeInServiceOnly(username: string, code: string){
+    this.user = {username, code};
   }
 
   getUserId(): number {

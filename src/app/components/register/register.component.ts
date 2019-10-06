@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
     if (this.username.length) {
       this.userService.saveUser(this.username).subscribe((userId) => {
         this.userService.storeUser(userId);
+
+        this.userService.storeInServiceOnly(this.username, this.code);
       });
     }
   }
