@@ -2,27 +2,25 @@
   <ng-container *ngIf="!loading; else loadingTemplate">
     <ion-list *ngIf="list && list.length">
       <ng-container *ngFor="let patrimony of list; index as i">
-        <ion-item *ngIf="displayElement(i) && patrimony.fields">
-          <ion-thumbnail margin-end>
-            <img [src]="patrimony.fields.apercu">
-          </ion-thumbnail>
-          <ion-label>
-            <div class="content-wrapper">
-              <div class="content-left">
-                <h2 class="text-break">{{ patrimony.fields.titre_fr }}</h2>
-                <p class="text-break">{{ patrimony.fields.adresse }}<br/>
-                  {{ patrimony.fields.code_postal }} {{ patrimony.fields.ville }}</p>
+        <ion-item-sliding *ngIf="displayElement(i) && patrimony.fields">
+          <ion-item>
+            <ion-thumbnail margin-end>
+              <img [src]="patrimony.fields.apercu" (error)="this.list[i].fields.apercu = patrimony.fields.image">
+            </ion-thumbnail>
+            <ion-label>
+              <div class="content-wrapper">
+                <div class="content-patrimony">
+                  <h2 class="text-break">{{ patrimony.fields.titre_fr }}</h2>
+                  <p class="text-break">{{ patrimony.fields.adresse }}<br/>
+                    {{ patrimony.fields.code_postal }} {{ patrimony.fields.ville }}</p>
+                </div>
               </div>
-              <div class="content-right">
-                <a (click)="deleteItem(i)">
-                  <ion-note slot="end">
-                    <ion-icon name="trash"></ion-icon>
-                  </ion-note>
-                </a>
-              </div>
-            </div>
-          </ion-label>
-        </ion-item>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+            <button class="danger-button" (click)="deleteItem(i)"><ion-icon name="trash"></ion-icon> Supprimer</button>
+          </ion-item-options>
+        </ion-item-sliding>
       </ng-container>
       <ng-container *ngIf="list.length > limit - 1 && !bypassLimit">
         <ion-button expand="block" (click)="removeBypassLimit()">

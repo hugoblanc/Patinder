@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastController} from '@ionic/angular';
+import {UserService} from '../services/user.service';
 import {PatService} from '../services/pat.service';
 
 @Component({
@@ -16,15 +17,41 @@ export class Tab2Page implements OnInit {
 
   constructor(
       public toastController: ToastController,
+      private userService: UserService,
       private patService: PatService
   ) {}
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  ionViewDidEnter() {
+    this.getData();
+  }
+
+  getData() {
     this.loading = true;
-    this.patService.getSavedPatrimoine().subscribe(res => {
-      this.list = res;
+    this.list = this.patService.getPatrimoine();
+    this.userService.getUserBackend().subscribe((res) => {
+      const recordedList: Patrimoine[] = res.record_ids || [];
+      if (!recordedList.length) {
+        this.list = [];
+      }
+      const list = this.list.map((pat: any) => {
+        let found = false;
+        for (const record of recordedList) {
+          if (pat.recordid === record) {
+            found = true;
+          }
+        }
+        if (found) {
+          return pat;
+        }
+      });
+      this.list = list.filter(el => !!el);
       this.loading = false;
     }, () => {
+      this.list = [];
       this.loading = false;
     });
   }
