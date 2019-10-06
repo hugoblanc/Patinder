@@ -2,10 +2,10 @@
   <ng-container *ngIf="!loading; else loadingTemplate">
     <ion-list *ngIf="list && list.length">
       <ng-container *ngFor="let patrimony of list; index as i">
-        <ion-item-sliding *ngIf="displayElement(i) && patrimony.fields">
-          <ion-item>
+        <ion-item-sliding *ngIf="displayElement(i) && patrimony.fields"  >
+          <ion-item (click)="showDetails(patrimony)">
             <ion-thumbnail margin-end>
-              <img [src]="patrimony.fields.apercu" (error)="this.list[i].fields.apercu = patrimony.fields.image">
+              <img [src]="patrimony.fields.image" (error)="this.list[i].fields.image = patrimony.fields.apercu">
             </ion-thumbnail>
             <ion-label>
               <div class="content-wrapper">

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ToastController} from '@ionic/angular';
 import {UserService} from '../services/user.service';
 import {PatService} from '../services/pat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -18,7 +19,8 @@ export class Tab2Page implements OnInit {
   constructor(
       public toastController: ToastController,
       private userService: UserService,
-      private patService: PatService
+      private patService: PatService,
+      private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +73,11 @@ export class Tab2Page implements OnInit {
 
   removeBypassLimit() {
     this.bypassLimit = true;
+  }
+
+  showDetails(pat){
+    this.patService.setCurrentPatrimoine(pat);
+    this.router.navigateByUrl('pat-details');
   }
 
   async presentToast() {

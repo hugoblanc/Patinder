@@ -29,7 +29,10 @@ export class Tab3Page implements OnInit {
       console.log(result);
       this.user.username = result.username;
       this.user.credit = result.credit;
+
+      this.user.code = this.userService.user.code;
     });
+    this.user.code = this.userService.user.code;
   }
 
 }
