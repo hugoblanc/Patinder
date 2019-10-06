@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable, of} from "rxjs";
 import { UserService } from './user.service';
 
 @Injectable({
@@ -1117,6 +1118,11 @@ export class PatService {
         user_id: this.userService.userId,
         amount: 10
       });
+  }
+
+  getSavedPatrimoine(): Observable<Patrimoine[]> {
+    // TODO: route back
+    return of(this.values);
   }
 
 }

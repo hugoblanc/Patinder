@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -20,9 +20,17 @@ export class UserService {
     localStorage.setItem(this.storageKey, userId.toString());
   }
 
-  getUserId(): number {
+  getUserIdLocalStorage(): number {
     const id = localStorage.getItem(this.storageKey);
     this.userId = parseInt(id, 10);
     return Number(id || 0);
+  }
+
+  getUserBackend(): Observable<any> {
+    const id = localStorage.getItem(this.storageKey);
+    if (!id || Number(id) === 0) {
+      return of(null);
+    }
+    return this.http.get<any>(`https://patrimoine.harari.io/web/api/user/${id}`);
   }
 }

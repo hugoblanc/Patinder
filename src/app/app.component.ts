@@ -28,7 +28,7 @@ export class AppComponent {
   }
 
   userConnected() {
-    const id = this.userService.getUserId();
+    const id = this.userService.getUserIdLocalStorage();
     return id !== 0;
   }
 

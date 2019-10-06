@@ -23,8 +23,15 @@
       </ion-card-content>
 
       <div class="ion-padding">
-        <ion-button expand="block" class="ion-no-margin" (click)="postUser()" [disabled]="username.length < 2">
-          S'inscrire</ion-button>
+        <ion-text color="danger" *ngIf="displayErrorMsg">Erreur, opération impossible</ion-text>
+        <ion-button expand="block" class="ion-no-margin" (click)="postUser()" [disabled]="username.length < 2 || loading">
+          <ng-container *ngIf="!loading; else displaySpinner">
+            S'inscrire
+          </ng-container>
+          <ng-template #displaySpinner>
+            <ion-spinner></ion-spinner>
+          </ng-template>
+        </ion-button>
       </div>
     </ion-card>
   </div>
