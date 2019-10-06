@@ -13,9 +13,23 @@ export class Tab3Page implements OnInit {
 
   }
   ngOnInit(): void {
-    this.user = this.userService.user;
+    this.user = this.userService.user || {};
+    this.refreshUser();
 
-    const solde = this.userService.
+  }
+
+  ionViewDidEnter() {
+    this.refreshUser();
+  }
+
+
+  refreshUser() {
+
+    this.userService.getUserBackend().subscribe((result) => {
+      console.log(result);
+      this.user.username = result.username;
+      this.user.credit = result.credit;
+    });
   }
 
 }

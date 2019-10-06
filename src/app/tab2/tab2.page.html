@@ -1,37 +1,45 @@
 <ion-content padding>
-  <h2>Votre liste</h2>
-
-  <ion-list *ngIf="list && list.length">
-    <ng-container *ngFor="let patrimony of list; index as i">
-      <ion-item *ngIf="displayElement(i) && patrimony.fields">
-        <ion-thumbnail margin-end>
-          <img [src]="patrimony.fields.apercu">
-        </ion-thumbnail>
-        <ion-label>
-          <div class="content-wrapper">
-            <div class="content-left">
-              <h2 class="text-break">{{ patrimony.fields.titre_fr }}</h2>
-              <p class="text-break">{{ patrimony.fields.adresse }}<br/>
-                {{ patrimony.fields.code_postal }} {{ patrimony.fields.ville }}</p>
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    <ion-list *ngIf="list && list.length">
+      <ng-container *ngFor="let patrimony of list; index as i">
+        <ion-item *ngIf="displayElement(i) && patrimony.fields">
+          <ion-thumbnail margin-end>
+            <img [src]="patrimony.fields.apercu">
+          </ion-thumbnail>
+          <ion-label>
+            <div class="content-wrapper">
+              <div class="content-left">
+                <h2 class="text-break">{{ patrimony.fields.titre_fr }}</h2>
+                <p class="text-break">{{ patrimony.fields.adresse }}<br/>
+                  {{ patrimony.fields.code_postal }} {{ patrimony.fields.ville }}</p>
+              </div>
+              <div class="content-right">
+                <a (click)="deleteItem(i)">
+                  <ion-note slot="end">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-note>
+                </a>
+              </div>
             </div>
-            <div class="content-right">
-              <a (click)="deleteItem(i)">
-                <ion-note slot="end">
-                  <ion-icon name="trash"></ion-icon>
-                </ion-note>
-              </a>
-            </div>
-          </div>
-        </ion-label>
-      </ion-item>
-    </ng-container>
-    <ng-container *ngIf="list.length > limit - 1 && !bypassLimit">
-      <ion-button expand="block" (click)="bypassLimit = !bypassLimit">... plus {{ moreItem() }} élément(s)</ion-button>
-    </ng-container>
-  </ion-list>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+      <ng-container *ngIf="list.length > limit - 1 && !bypassLimit">
+        <ion-button expand="block" (click)="removeBypassLimit()">
+          ... plus {{ moreItem() }} élément<ng-container *ngIf="moreItem() > 1">s</ng-container>
+        </ion-button>
+      </ng-container>
+    </ion-list>
 
-  <div *ngIf="!(list && list.length)">
-    <p>Vous n'avez aucun élément</p>
-  </div>
+    <div *ngIf="!(list && list.length)">
+      <p>Vous n'avez aucun élément</p>
+    </div>
+  </ng-container>
+
+  <ng-template #loadingTemplate>
+    <div class="loading-wrapper">
+      <ion-spinner></ion-spinner>
+    </div>
+  </ng-template>
 
 </ion-content>

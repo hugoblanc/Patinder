@@ -14,20 +14,25 @@
 
 
   <ion-list>
-
+    <!-- 
     <ion-item-divider>
       Mes info
-    </ion-item-divider>
+    </ion-item-divider> -->
 
     <ion-item>
       <ion-avatar slot="start">
         <img src="assets/me.jpg">
       </ion-avatar>
-      <ion-label>Hugo Blanc</ion-label>
-      <p>Code: {{user?.code}}</p>
-      <p>Username: {{user?.username}}</p>
+      <ion-label>
+        <h2> Hugo Blanc </h2>
+        <p *ngIf="user?.code">Code: <ion-text color="primary"> {{user?.code}} </ion-text>
+        </p>
+        <p *ngIf="user?.username">Username: <ion-text color="primary"> {{user?.username}} </ion-text>
+        </p>
+        <p *ngIf="user?.credit">Crédit restant: <ion-text color="primary"> {{user?.credit}} </ion-text>
+        </p>
+      </ion-label>
     </ion-item>
   </ion-list>
-
 
 </ion-content>

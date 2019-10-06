@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable, of} from "rxjs";
 import { UserService } from './user.service';
 
 @Injectable({
@@ -17,8 +18,8 @@ export class PatService {
       conditions_de_participation: 'Gratuit / Sur inscription',
       categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
       credits_image: '\u00a9J-F.Humbert',
-      image: 'https://cibul.s3.amazonaws.com/2919ef51aa284384b967cd9e92f0ff37.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/balade-commentee-sur-les-plantes-sauvages-comestibles-et-medicinales-au-moyen-age',
+      image: 'https://files.structurae.net/files/photos/5256/2018-07-31/dsc03250.jpeg',
+      lien: 'https://files.structurae.net/files/photos/5256/2018-07-31/dsc03250.jpeg',
       derniere_ouverture: '10:30',
       titre_fr: 'Balade comment\u00e9e sur les plantes sauvages comestibles et m\u00e9dicinales au Moyen \u00c2ge',
       premiere_fermeture: '17:00',
@@ -49,7 +50,7 @@ export class PatService {
       mots_cles_fr: 'petit moulin, cernay, vaux, plantes, nature',
       code_postal: '78720',
       derniere_date: '2019-09-22',
-      nom_du_lieu: 'Petit moulin des Vaux-de-Cernay',
+      nom_du_lieu: 'Cathédrale Notre-Dame de Chartres',
       liens_du_lieu: 'http://www.parc-naturel-chevreuse.fr/une-autre-vie-sinvente-ici/vie-sociale-et-culturelle-preservation-du-patrimoine/le-petit-moulin-des',
       region: '\u00cele-de-France',
       detail_des_conditions_fr: 'Rendez-vous au parking L\u00e9opold (sur la route D91, \u00e0 gauche apr\u00e8s le Petit Moulin)',
@@ -75,10 +76,10 @@ export class PatService {
       conditions_de_participation: 'Gratuit',
       categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
       credits_image: 'Sous licence libre',
-      image: 'https://cibul.s3.amazonaws.com/5d9d2f45d7bf433db0517e06710fa485.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/eglise-saint-martin-oncy-sur-ecole-en-fete',
+      image: 'http://www.jeanclaudelafarge.fr/photos/photos-div/chateau-maintenon-parc.jpg',
+      lien: 'http://www.jeanclaudelafarge.fr/photos/photos-div/chateau-maintenon-parc.jpg',
       derniere_ouverture: '16:00',
-      titre_fr: 'Concert exceptionnel de Gospel',
+      titre_fr: 'Parc et Château de Maintenon',
       premiere_fermeture: '17:30',
       description_du_lieu_fr: 'L\'\u00e9glise romane Saint-Martin d\u2019Oncy-sur-Ecole \u00e9difi\u00e9e au XIe si\u00e8cle est une des plus anciennes du d\u00e9partement de l\'Essonne. Elle est un t\u00e9moin, remarquable pour la r\u00e9gion, des constructions de l\u2019\u00e9poque. L\u2019\u00e9difice de taille tr\u00e8s modeste pr\u00e9sente une partie romane assez rare en G\u00e2tinais et une d\u00e9coration int\u00e9rieure fort int\u00e9ressante.',
       resume_horaires_fr: 'Dimanche 22 septembre, 16h00',
@@ -129,10 +130,10 @@ export class PatService {
       conditions_de_participation: 'Gratuit',
       categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
       credits_image: 'DR',
-      image: 'https://cibul.s3.amazonaws.com/847733dc491443b4b1a012e49f53f973.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/ferme-mazier-avec-la-pepiniere',
+      image: 'https://asset-premium.keepeek.com/medias/domain37/media511/76822-lwl0xo060a-whr.jpg',
+      lien: 'https://asset-premium.keepeek.com/medias/domain37/media511/76822-lwl0xo060a-whr.jpg',
       derniere_ouverture: '12:00',
-      titre_fr: 'Ferme Mazier avec la P\u00e9pini\u00e8re',
+      titre_fr: 'Temple d\'amour - Château des Vaux',
       premiere_fermeture: '20:00',
       description_du_lieu_fr: 'L\u2019existence de la Ferme remonte au XVIIe si\u00e8cle selon les d\u00e9clarations terrier conserv\u00e9es aux archives de Saint-Denis. L\u2019\u00e9quipe du service de la culture de la ville de La Courneuve a r\u00e9alis\u00e9 une \u00e9tude tr\u00e8s compl\u00e8te de l\u2019histoire de la maison et de son occupation du XVIIe au XXe si\u00e8cle, \u00e9tude qui pourrait \u00eatre mobilis\u00e9e dans un futur projet. La famille Mazier, propri\u00e9taire de la Ferme, exploite le site jusqu\u2019en 1962. Lorsque M. Mazier arr\u00eate son activit\u00e9, il laisse totalement intacts les b\u00e2timents de la ferme. Cette maison a conserv\u00e9 sa fonction initiale depuis le XVIIe si\u00e8cle. C\u2019est l\u00e0 son int\u00e9r\u00eat car beaucoup d\u2019autres fermes aux environs ont \u00e9t\u00e9 transform\u00e9es. La Plaine des Vertus nourrit le tout Paris jusque dans les ann\u00e9es 1960, le pass\u00e9 agricole se retrouve \u00e7\u00e0 et l\u00e0 dans l\u2019architecture de la commune. La ferme Mazier, dernier t\u00e9moignage patrimonial du pass\u00e9 mara\u00eecher de la commune, ouvre ses portes et vous fait d\u00e9couvrir les r\u00e9sultats du deuxi\u00e8me chantier \u00e9cole entam\u00e9 depuis le printemps et encadr\u00e9 par Apij Bat. Ce Chantier \u00e9cole est men\u00e9 dans le cadre de parcours de r\u00e9insertion professionnelle dans les m\u00e9tiers du b\u00e2timent.',
       resume_horaires_fr: 'Samedi 21 septembre, 12h00',
@@ -179,15 +180,15 @@ export class PatService {
     datasetid: 'jep_spi_2019',
     recordid: '22fea5687f7c77ebc0f1d3f72bdf41f068436e24',
     fields: {
-      apercu: 'https://cibul.s3.amazonaws.com/2210ba99907c4ec98ddf5f9b48d03cea.thumb.image.jpg',
+      apercu: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/La_Roche-sur-Yon._Statue_de_Napol%C3%A9on_par_Alfred_Emilien_Ohara_de_Niewerkerke_%281854%29.JPG',
       ville: 'Villeneuve-Saint-Georges',
       conditions_de_participation: 'Gratuit',
       categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
       credits_image: 'jpvic',
-      image: 'https://cibul.s3.amazonaws.com/2210ba99907c4ec98ddf5f9b48d03cea.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/bal-guinguette-au-bord-de-leau',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/La_Roche-sur-Yon._Statue_de_Napol%C3%A9on_par_Alfred_Emilien_Ohara_de_Niewerkerke_%281854%29.JPG',
+      lien: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/La_Roche-sur-Yon._Statue_de_Napol%C3%A9on_par_Alfred_Emilien_Ohara_de_Niewerkerke_%281854%29.JPG',
       derniere_ouverture: '12:00',
-      titre_fr: 'Bal \u00e0 la Guinguette Auvergnate en bord de Seine',
+      titre_fr: 'Statue de Napoléon par Alfred Emilien',
       premiere_fermeture: '18:00',
       description_du_lieu_fr: 'Situ\u00e9e en bords de Seine, la Guinguette Auvergnate vous propose des d\u00e9jeuners dansants le dimanche et des soir\u00e9es musicales le vendredi.  Plats r\u00e9gionaux sp\u00e9cialit\u00e9s Auvergne et Sud Ouest. Label Patrimoine Int\u00e9r\u00eat  R\u00e9gional',
       resume_horaires_fr: 'Dimanche 22 septembre, 12h00',
@@ -285,181 +286,6 @@ export class PatService {
       coordinates: [
         2.486949,
         48.836334
-      ]
-    },
-    record_timestamp: '2019-09-13T11:32:22.384+02:00'
-  },
-  {
-    datasetid: 'jep_spi_2019',
-    recordid: 'f1d8a1e7081787c946e6ef2acf87ee4568e31df5',
-    fields: {
-      apercu: 'https://cibul.s3.amazonaws.com/a1987c31dcae4c8584c2462c73b9025a.thumb.image.jpg',
-      ville: 'Wy-dit-Joli-Village',
-      conditions_de_participation: 'Gratuit / Sur inscription',
-      categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
-      credits_image: '\u00a9 Francine GARNIER',
-      image: 'https://cibul.s3.amazonaws.com/a1987c31dcae4c8584c2462c73b9025a.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/atelier-jardin-des-secrets',
-      derniere_ouverture: '14:00',
-      titre_fr: 'Atelier "Jardin des secrets"',
-      premiere_fermeture: '17:00',
-      description_du_lieu_fr: 'Au c\u0153ur du Vexin fran\u00e7ais, dans la charmante commune de Wy-dit-joli-Village, le Mus\u00e9e de l\u2019Outil - Collection Claude et Fran\u00e7oise Pigeard et ses florissants jardins baignent dans une atmosph\u00e8re bucolique.De la forge de Claude Pigeard \u00e0 la collection d\u2019outils et d\u2019ustensiles caract\u00e9ristiques des arts et traditions populaires du Vexin fran\u00e7ais, en passant par les vestiges d\u2019un baln\u00e9aire gallo-romain, ce lieu magique accueille ateliers, visites guid\u00e9es et animations.Embellis avec amour pendant des d\u00e9cennies par Fran\u00e7oise et Claude Pigeard, le mus\u00e9e et ses jardins d\'inspiration m\u00e9di\u00e9vale forment aujourd\u2019hui un pr\u00e9cieux \u00e9crin pour des repr\u00e9sentations th\u00e9\u00e2trales ou chor\u00e9graphiques, des concerts, des projections cin\u00e9matographiques, des expositions et des r\u00e9sidences d\u2019artistes ou d\u2019\u00e9crivains. La pr\u00e9sence d\'un baln\u00e9aire gallo-romain class\u00e9 aux Monuments historiques au sein de cette demeure compl\u00e8te la visite.Les touristes comme les promeneurs, les enfants comme leurs grands-parents, trouveront mati\u00e8re \u00e0 satisfaire leur curiosit\u00e9 dans ce mus\u00e9e aux multiples facettes.Nouveaut\u00e9 au Mus\u00e9e : des tablettes tactiles ont \u00e9t\u00e9 mises \u00e0 disposition du public. Vous pourrez d\u00e9couvrir 5 vid\u00e9os traitant du Mus\u00e9e de l\'Outil, ainsi qu\'un jeu ludique et interactif.Ces applications sont disponibles en t\u00e9l\u00e9chargement gratuit pour smartphones et tablettes. N\'h\u00e9sitez pas \u00e0 les d\u00e9couvrir :Le Mus\u00e9e de l\'Outil : L\'Application Applehttps://itunes.apple.com/us/app/le-mus%C3%A9e-de-loutil-lapplication/id1231015371?mt=8Le Mus\u00e9e de l\'Outil : Le jeuhttp://www.furetcompany.com/site/portfolio/musee-de-loutil-du-val-doise/Entr\u00e9e libre et gratuiteAccessible aux personnes \u00e0 mobilit\u00e9 r\u00e9duiteOuverture \u00e0 partir du 1er mai 2018De 13 h \u00e0 17 h 30 du mercredi au vendredi.De 13 h \u00e0 18 h le samedi, le dimanche et les jours f\u00e9ri\u00e9s.Ferm\u00e9 le lundi et le mardi.',
-      resume_horaires_fr: 'Samedi 21 septembre, 14h00',
-      description_fr: 'Venez tisser vos secrets dans le jardin. Atelier filaire avec pratique ludique du tissage et du macram\u00e9. Participation \u00e0 l\'\u0153uvre et son inscription dans le jardin. Par Francine Garnier, artiste.',
-      acces_itineraire_fr: 'En voiture A15 > D14, sortie 17 > Guiry-en-Vexin (Mus\u00e9e arch\u00e9ologique du Val-d\'Oise) > Wy-dit-Joli-Village (Mus\u00e9e de l\'Outil - Collection Claude et Fran\u00e7oise Pigeard).',
-      lien_d_inscription: 'http://www.valdoise.fr/musee-archeologique',
-      image_source: 'https://cibul.s3.amazonaws.com/a1987c31dcae4c8584c2462c73b9025a.full.image.jpg',
-      creation_de_la_fiche: '2019-07-05T08:20:43.000Z',
-      horaires_iso: '2019-09-21T14:00:00+02:00-2019-09-21T17:00:00+02:00',
-      types_d_evenement: 'Atelier / D\u00e9monstration / Savoir-faire',
-      derniere_mise_a_jour: '2019-07-28T12:11:25.000Z',
-      longitude: '1.83543',
-      latitude: '49.102098',
-      identifiant_du_lieu: '52750085',
-      site_web_du_lieu: 'http://WWW.valdoise.fr',
-      wgs84: [
-        49.102098,
-        1.83543
-      ],
-      horaires_detailles_fr: 'samedi 21 septembre - 14h00 \u00e0 17h00',
-      derniere_fermeture: '17:00',
-      adresse: 'Rue de la Mairie 95420 Wy-dit-Joli-Village',
-      departement: 'Val-d\'Oise',
-      telephone_du_lieu: '01 34 67 00 91',
-      premiere_date: '2019-09-21',
-      mots_cles_fr: 'exposition, art, cr\u00e9ation, tissage, land art',
-      code_postal: '95420',
-      derniere_date: '2019-09-21',
-      nom_du_lieu: 'Mus\u00e9e de l\'Outil',
-      region: '\u00cele-de-France',
-      detail_des_conditions_fr: '\u00c0 partir de 7 ans. Entr\u00e9e libre sur inscription.',
-      tags_du_lieu: 'Mus\u00e9e, salle d\'exposition|Jardin remarquable',
-      premiere_ouverture: '14:00',
-      description_longue_fr: 'Venez tisser vos secrets dans le jardin. Atelier filaire avec pratique ludique du tissage et du macram\u00e9. Participation \u00e0 l\'\u0153uvre et son inscription dans le jardin. Par Francine Garnier, artiste.'
-    },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        1.83543,
-        49.102098
-      ]
-    },
-    record_timestamp: '2019-09-13T11:32:22.384+02:00'
-  },
-  {
-    datasetid: 'jep_spi_2019',
-    recordid: '4545987f7561a4a6f84f2490f15ea626d6dc61d5',
-    fields: {
-      departement: 'Yvelines',
-      description_longue_fr: 'Achev\u00e9e en 1871, l\u2019\u00e9glise Saint-Lubin est une \u0153uvre de jeunesse de l\u2019architecte Anatole de Baudot, le plus illustre des \u00e9l\u00e8ves de Viollet-le-Duc. Lors du mariage du fils du pr\u00e9sident Lebrun, elle \u00e9tait encore orn\u00e9e d\u2019un chatoyant d\u00e9cor peint. L\u2019h\u00f4tel des Postes, encore en projet en 1932, est quant \u00e0 lui un parfait exemple du style Art D\u00e9co.',
-      conditions_de_participation: 'Gratuit',
-      categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
-      identifiant_du_lieu: '50528387',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/leglise-et-lhotel-des-postes',
-      derniere_ouverture: '16:30',
-      titre_fr: 'Visite guid\u00e9e de l\'\u00e9glise et de l\'h\u00f4tel des Postes',
-      premiere_fermeture: '17:00',
-      description_du_lieu_fr: 'Achev\u00e9e en 1871, l\u2019\u00e9glise Saint-Lubin est une \u0153uvre de jeunesse d\u2019Anatole de Baudot, le plus grand des \u00e9l\u00e8ves de Viollet-le-Duc. Ce dernier y ouvrit la voie \u00e0 l\u2019architecture du XXe si\u00e8cle. Des r\u00e9am\u00e9nagements successifs, notamment l\u2019installation de vitraux de Gabriel Loire en 1970, ont profond\u00e9ment transform\u00e9 notre perception de cette \u0153uvre architecturale, laquelle m\u00e9rite d\u2019ailleurs d\u2019\u00eatre remise \u00e0 l\u2019honneur. Le r\u00e9cent nettoyage du clocher-porche a ainsi permis de r\u00e9v\u00e9ler la blondeur de la pierre.',
-      resume_horaires_fr: '21 et 22 septembre',
-      description_fr: 'L\u2019\u00e9glise Saint-Lubin est une \u0153uvre de jeunesse d\'Anatole de Baudot, tandis que l\'h\u00f4tel des Postes est un parfait exemple du style Art d\u00e9co.',
-      creation_de_la_fiche: '2019-07-12T10:06:19.000Z',
-      horaires_iso: '2019-09-21T16:30:00+02:00-2019-09-21T17:00:00+02:00\n2019-09-22T16:30:00+02:00-2019-09-22T17:00:00+02:00',
-      types_d_evenement: 'Circuit',
-      derniere_mise_a_jour: '2019-07-28T08:21:47.000Z',
-      longitude: '1.823773',
-      latitude: '48.646315',
-      image_du_lieu: 'https://cibul.s3.amazonaws.com/location84700733.jpg',
-      wgs84: [
-        48.646315,
-        1.823773
-      ],
-      horaires_detailles_fr: 'samedi 21 septembre - 16h30 \u00e0 17h00\ndimanche 22 septembre - 16h30 \u00e0 17h00',
-      derniere_fermeture: '17:00',
-      adresse: 'Place Jeanne-d\'Arc 78120 Rambouillet',
-      telephone_du_lieu: '01 34 83 21 21',
-      premiere_date: '2019-09-21',
-      code_postal: '78120',
-      derniere_date: '2019-09-22',
-      nom_du_lieu: '\u00c9glise Saint-Lubin',
-      ville: 'Rambouillet',
-      region: '\u00cele-de-France',
-      detail_des_conditions_fr: 'Acc\u00e8s libre',
-      tags_du_lieu: '\u00c9difice religieux|Villes et Pays d\'art et d\'histoire',
-      premiere_ouverture: '16:30'
-    },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        1.823773,
-        48.646315
-      ]
-    },
-    record_timestamp: '2019-09-13T11:32:22.384+02:00'
-  },
-  {
-    datasetid: 'jep_spi_2019',
-    recordid: 'e3f808f8b654944eb25780e49f5f602394754c95',
-    fields: {
-      description_longue_fr: 'Gr\u00e2ce aux explications d\'un guide-conf\u00e9rencier et au kit du petit po\u00e8te, les enfants pourront \u00e9crire le po\u00e8me qui refl\u00e8tera au mieux le monument qu\u2019ils auront choisi. Les \u0153uvres pourront directement \u00eatre envoy\u00e9es pour participation au concours Patrimoines en po\u00e9sie. A vos plumes, pr\u00eats, partez !',
-      code_postal: '77100',
-      horaires_detailles_fr: 'samedi 21 septembre - 15h00 \u00e0 16h30',
-      categorie_spi: 'Patrimoines en po\u00e9sie',
-      ville: 'Meaux',
-      adresse: '5 place Charles-de-Gaulle',
-      nom_du_lieu: 'Cit\u00e9 \u00e9piscopale de Meaux',
-      lien: 'http://www.tourisme-paysdemeaux.com/2870-visite-decouverte-de-la-cite-episcopale-comment-jecris-un-poeme-dans-le-cadre-du-concours',
-      detail_des_conditions_fr: 'Sur r\u00e9servation\n01 83 69 02 10 ou kelly.jung@gmail.com',
-      titre_fr: 'Atelier d\'\u00e9criture "Tous \u00e0 vos plumes"',
-      longitude: '2.877943',
-      description_fr: 'Gr\u00e2ce aux explications d\'un guide-conf\u00e9rencier et au kit du petit po\u00e8te, les enfants pourront \u00e9crire le po\u00e8me qui refl\u00e8tera au mieux le monument qu\u2019ils auront choisi. Les \u0153uvres pourront directement \u00eatre envoy\u00e9es pour participation au concours Patrimoines en po\u00e9sie. A vos plumes, pr\u00eats, partez !',
-      latitude: '48.96063',
-      wgs84: [
-        48.96063,
-        2.877943
-      ],
-      types_d_evenement: 'Jeune public',
-      conditions_de_participation: 'Gratuit / Sur inscription'
-    },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        2.877943,
-        48.96063
-      ]
-    },
-    record_timestamp: '2019-09-13T11:32:22.384+02:00'
-  },
-  {
-    datasetid: 'jep_spi_2019',
-    recordid: 'ae3fd9215b3a6503ef504a84ab557ea6ce978b81',
-    fields: {
-      description_longue_fr: '\u00c0 l\u2019occasion du jeu-concours\u00a0Patrimoines en po\u00e9sie, d\u00e9couvre qui \u00e9tait Jean Cocteau. Apr\u00e8s une courte visite de sa maison, viens t\u2019installer dans le jardin fleuri pour \u00e9crire ton po\u00e8me. Laisse-toi inspirer par les \u0153uvres de l\u2019artiste\u00a0: romans, films, peintures,\u2026\u00a0 les id\u00e9es ne devraient pas manquer\u00a0!',
-      code_postal: '91490',
-      horaires_detailles_fr: 'dimanche 22 septembre - 14h30 \u00e0 16h30',
-      categorie_spi: 'Patrimoines en po\u00e9sie',
-      ville: 'Milly-la-For\u00eat',
-      adresse: '15, rue du Lau',
-      image: 'http://patrimoines.iledefrance.fr/sites/default/files/custom-custom_size_photo_cocteau.jpg',
-      nom_du_lieu: 'Maison Cocteau',
-      lien: 'http://www.maisoncocteau.net/',
-      detail_des_conditions_fr: 'Sur r\u00e9servation \u00e0 inventaire-patrimoine@iledefrance.fr',
-      titre_fr: 'Immersion po\u00e9tique dans l\u2019univers de Jean Cocteau',
-      credits_image: '\u00a9 Philippe Ayrault, R\u00e9gion \u00cele-de-France, 2019',
-      longitude: '2.46475',
-      description_fr: '\u00c0 l\u2019occasion du jeu-concours\u00a0Patrimoines en po\u00e9sie, d\u00e9couvre qui \u00e9tait Jean Cocteau. Apr\u00e8s une courte visite de sa maison, viens t\u2019installer dans le jardin fleuri pour \u00e9crire ton po\u00e8me. Laisse-toi inspirer par les \u0153uvres de l\u2019artiste\u00a0: romans, films, peintures,\u2026\u00a0 les id\u00e9es ne devraient pas manquer\u00a0!',
-      latitude: '48.4023',
-      wgs84: [
-        48.4023,
-        2.46475
-      ],
-      types_d_evenement: 'Jeune public',
-      conditions_de_participation: 'Gratuit / Sur inscription'
-    },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        2.46475,
-        48.4023
       ]
     },
     record_timestamp: '2019-09-13T11:32:22.384+02:00'
@@ -591,8 +417,8 @@ export class PatService {
       conditions_de_participation: 'Gratuit',
       categorie_spi: 'Label Patrimoine d\'int\u00e9r\u00eat r\u00e9gional',
       credits_image: 'jpvicguinguetteauvergnate',
-      image: 'https://cibul.s3.amazonaws.com/e646edb3823f40b0b30910b02ed62aba.base.image.jpg',
-      lien: 'https://openagenda.com/jep-2019-ile-de-france/event/repas-et-danses-auvergnates-a-la-guinguette',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/0/07/France_Eure_et_Loir_Chartres_Eglise_Saint_Aignan.jpg',
+      lien: 'https://upload.wikimedia.org/wikipedia/commons/0/07/France_Eure_et_Loir_Chartres_Eglise_Saint_Aignan.jpg',
       derniere_ouverture: '12:00',
       titre_fr: 'Danses auvergnates \u00e0 la guinguette',
       premiere_fermeture: '19:00',
@@ -1117,6 +943,11 @@ export class PatService {
         user_id: this.userService.userId,
         amount: 10
       });
+  }
+
+  getSavedPatrimoine(): Observable<Patrimoine[]> {
+    // TODO: route back
+    return of(this.values);
   }
 
 }

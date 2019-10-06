@@ -724,7 +724,7 @@ export class Tab1Page implements OnInit {
       const buttonRight = document.querySelector('.right-action');
 
       buttonLeft.addEventListener('click', onActionLeft, false);
-      buttonTop.addEventListener('click', onActionTop, false);
+      //buttonTop.addEventListener('click', onActionTop, false);
       buttonRight.addEventListener('click', onActionRight, false);
 
     }

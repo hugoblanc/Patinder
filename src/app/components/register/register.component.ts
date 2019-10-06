@@ -10,6 +10,8 @@ export class RegisterComponent implements OnInit {
 
   public username = '';
   public code = '';
+  public displayErrorMsg: boolean;
+  public loading: boolean;
 
   constructor(private userService: UserService) { }
 
@@ -17,13 +19,15 @@ export class RegisterComponent implements OnInit {
   }
 
   postUser() {
-    if (this.username.length) {
-      this.userService.saveUser(this.username).subscribe((userId) => {
-        this.userService.storeUser(userId);
-
-        this.userService.storeInServiceOnly(this.username, this.code);
-      });
-    }
+    this.loading = true;
+    this.displayErrorMsg = false;
+    this.userService.saveUser(this.username).subscribe((userId) => {
+      this.userService.storeUser(userId);
+      this.loading = false;
+    }, () => {
+      this.displayErrorMsg = true;
+      this.loading = false;
+    });
   }
 
 }
