@@ -1,1 +1,14 @@
+#company-container{
+    // margin: 2rem;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 
+    ion-avatar{
+        margin: 2rem auto;
+    }
+
+    ion-text{
+        font-size: 1.5rem;
+    }
+}

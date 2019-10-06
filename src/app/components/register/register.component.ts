@@ -9,6 +9,7 @@ import {UserService} from '../../services/user.service';
 export class RegisterComponent implements OnInit {
 
   public username = '';
+  public code = '';
 
   constructor(private userService: UserService) { }
 
@@ -17,8 +18,8 @@ export class RegisterComponent implements OnInit {
 
   postUser() {
     if (this.username.length) {
-      this.userService.saveUser(this.username).subscribe((res) => {
-        this.userService.storeUser(Number(res));
+      this.userService.saveUser(this.username).subscribe((userId) => {
+        this.userService.storeUser(userId);
       });
     }
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ToastController} from "@ionic/angular";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: 'app-tab2',
@@ -127,7 +127,7 @@ export class Tab2Page {
   public limit = 1;
   public bypassLimit = false;
 
-  constructor(public toastController: ToastController) {}
+  constructor(public toastController: ToastController) { }
 
   displayElement(index: number): boolean {
     if (this.bypassLimit) {

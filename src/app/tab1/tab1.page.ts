@@ -96,6 +96,7 @@ export class Tab1Page implements OnInit {
         updateUi();
         currentElement();
         setActiveHidden();
+        this.savePatrimoine();
       };
       // Functions to swipe right elements on logic external action.
       const onActionRight = () => {
@@ -106,7 +107,7 @@ export class Tab1Page implements OnInit {
             rightObj.style.zIndex = '8';
             transformUi(0, 0, 1, rightObj);
           }
-
+          this.savePatrimoine();
           setTimeout(() => {
             onSwipeRight();
             resetOverlayRight();

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -1093,7 +1094,7 @@ export class PatService {
 
   private _patrimoine: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
 
   getPatrimoine(): any[] {
@@ -1110,11 +1111,11 @@ export class PatService {
 
 
   savePatrimoine(patrimoine: Patrimoine) {
-    return this.http.post('https://patrimoine.harari.io/web/api/donation',
+    return this.http.post('http://patrimoine.harari.io/web/api/donation',
       {
-        recordid: patrimoine.recordid,
-        user_id: 'YUI',
-        amout: 10
+        record_id: patrimoine.recordid,
+        user_id: this.userService.userId,
+        amount: 10
       });
   }
 
